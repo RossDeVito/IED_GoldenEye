@@ -23,20 +23,24 @@ def pwm_loop(t_1, t_2):
 		if current < last:
 			board.digital[13].write(1)
 			board.digital[12].write(1)
-		if current >= t_1.value and current < t_1.value + 5:
+		if current >= t_1.value:
 			board.digital[13].write(0)
-		if current >= t_2.value and current < t_2.value + 5:
+		if current >= t_2.value:
 			board.digital[12].write(0)
 		last = current
-		#print(current) #to debug off trigger window
+		#print(current) #to debug off trigger windowr
 
 def input_loop(t_1, t_2):
 	coeff = 3
 
+	# t_1.value = 0
+	# t_2.value = 50
+
 	for i in range(500, 7500):
 		t_1.value = conversion_func(i, coeff)
 		t_2.value = conversion_func((8000-i), coeff)
-		time.sleep(.01)
+		print("t1: {}\tt2: {}".format(t_1.value, t_2.value))
+		time.sleep(.002)
 
 	print("end")
 

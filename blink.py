@@ -13,6 +13,6 @@ if __name__ == '__main__':
 
 	for x in range(int(loopTimes)):
 		board.digital[13].write(1)
-		time.sleep(0.2)
+		time.sleep(1)
 		board.digital[13].write(0)
-		time.sleep(0.2)
+		time.sleep(1)

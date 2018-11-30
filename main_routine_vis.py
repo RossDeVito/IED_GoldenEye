@@ -97,6 +97,7 @@ if __name__ == '__main__':
             for max_val in get_frame_maxes(frames, depth_matrix):
                 im = plt.plot(max_val[1][0], max_val[1][1], marker='o', color='darkred', 
                     markersize=10, mew=5, fillstyle='none')
+            print(list(get_frame_maxes(frames, depth_matrix))[4])
             plt.draw()
             plt.pause(0.01)
             plt.cla()
